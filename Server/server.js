@@ -24,11 +24,29 @@ fs.writeFile('server.json', JSON.stringify(apiList), err => {
   console.log('Saved file');
 });
 
-app.get('/getImg', (req, res) => {
+app.get('/getAll', (req, res) => {
   let apiData = fs.readFileSync("server.json");
   let apiInfo = JSON.parse(apiData);
 
-  res.send("teeest");
+  res.send(apiInfo);
+});
+
+app.post('/source/:src/name/:name/price/:price', (req, res) => {
+  let src = req.params.src;
+  let name = req.params.name;
+  let price = req.params.price;
+
+  let newItem = {};
+  newItem.src = src;
+  newItem.name = name;
+  newItem.price = price;
+
+  apiList.push(newItem);
+
+  fs.writeFile('server.json', JSON.stringify(apiList), err => {
+    if (err) throw err;
+    console.log('Saved file');
+  });
 });
 
 app.listen(port, () => {
