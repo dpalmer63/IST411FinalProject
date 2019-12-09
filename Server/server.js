@@ -28,7 +28,7 @@ app.get('/getImg', (req, res) => {
   let apiData = fs.readFileSync("server.json");
   let apiInfo = JSON.parse(apiData);
 
-  res.send("test");
+  res.send("teeest");
 });
 
 app.listen(port, () => {
