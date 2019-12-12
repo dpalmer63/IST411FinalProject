@@ -22,12 +22,11 @@
         pricetxt.appendChild(text);
         document.querySelector("#content").appendChild(pricetxt);
 
-        let title = document.createElement("p");
+        let title = document.createElement("h4");
         let ptext = document.createTextNode(data[i].name);
         title.setAttribute("style", "font-weight:bold");
         title.appendChild(ptext);
         document.querySelector("#content").appendChild(title);
-
       }
     }
     else
